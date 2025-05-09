@@ -52,7 +52,7 @@ IconLeft,
 IconRight,...props}: ButtonProps & { IconLeft?: React.ComponentType; IconRight?: React.ComponentType }) => 
 
 <TouchableOpacity onPress={onPress}
-    className={`w-full h-[60px] flex-row items-center justify-center rounded-full shadow-md shadow-neutral-400/700 ${getBgVariantStyle(bgVariant)} ${className}`} {...props}>
+    className={`w-full p-3 flex-row items-center justify-center rounded-full shadow-md shadow-neutral-400/700 ${getBgVariantStyle(bgVariant)} ${className}`} {...props}>
     {IconLeft && <IconLeft />}
     <Text className={`text-lg font-bold ${getTextVariantStyle(textVariant)}`}>{title}</Text>
     {IconRight && <IconRight />}
