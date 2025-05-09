@@ -2,9 +2,12 @@
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import 'react-native-reanimated';
-
+import { ClerkProvider } from '@clerk/clerk-expo'
 
 export default function RootLayout() {
+
+  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
+
 
   const [loaded] = useFonts({
     'Lato-Regular': require('../assets/fonts/Lato-Regular.ttf'),
@@ -24,14 +27,15 @@ export default function RootLayout() {
   }
 
   return (
- 
+
+    <ClerkProvider>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(root)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
-
+      </ClerkProvider>
  
   );
-}
+};
