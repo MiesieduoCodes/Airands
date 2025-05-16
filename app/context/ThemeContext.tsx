@@ -13,9 +13,9 @@ interface ThemeContextType {
 
 const lightColors = {
   primary: '#007AFF',
-  background: '#FFFFFF',
+  background: '#EAEAEA',
   card: '#F2F2F7',
-  text: '#000000',
+  text: '#000100',
   border: '#C6C6C8',
   notification: '#FF3B30',
   success: '#34C759',
@@ -27,9 +27,9 @@ const lightColors = {
 
 const darkColors = {
   primary: '#0A84FF',
-  background: '#000000',
+  background: '#000100',
   card: '#1C1C1E',
-  text: '#FFFFFF',
+  text: '#EAEAEA',
   border: '#38383A',
   notification: '#FF453A',
   success: '#32D74B',
@@ -39,7 +39,12 @@ const darkColors = {
   tabBarInactive: '#8E8E93',
 };
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>({
+  theme: 'system',
+  isDark: false,
+  setTheme: () => {},
+  colors: lightColors
+});
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const systemColorScheme = useColorScheme();
